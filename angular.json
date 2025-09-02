@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "aula-basica": {
+    "angularBasico": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -25,7 +25,11 @@
               }
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
+            ],
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ]
           },
           "configurations": {
@@ -56,10 +60,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "aula-basica:build:production"
+              "buildTarget": "angularBasico:build:production"
             },
             "development": {
-              "buildTarget": "aula-basica:build:development"
+              "buildTarget": "angularBasico:build:development"
             }
           },
           "defaultConfiguration": "development"
