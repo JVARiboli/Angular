@@ -54,15 +54,15 @@
           <form #alunoForm="ngForm" (ngSubmit)="salvar()">
             <div class="mb-3">
               <label for="nome" class="form-label">Nome</label>
-              <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="alunoAtual.nome" required />
+              <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="alunoAtual.nome" required minlength="3"/>
             </div>
             <div class="mb-3">
               <label for="curso" class="form-label">Curso</label>
-              <input type="text" class="form-control" id="curso" name="curso" [(ngModel)]="alunoAtual.curso" required />
+              <input type="text" class="form-control" id="curso" name="curso" [(ngModel)]="alunoAtual.curso" required minlength="3"/>
             </div>
             <div class="mb-3">
               <label for="telefone" class="form-label">Telefone</label>
-              <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="alunoAtual.telefone" required />
+              <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="alunoAtual.telefone" required   (input)="formatarTelefone()" (keydown)="permitirSomenteNumeros($event)" maxlength="15"/>
             </div>
           </form>
         </div>

@@ -101,4 +101,38 @@ export class AlunoComponent implements OnInit, AfterViewInit {
       telefone: ''
     };
   }
+
+  formatarTelefone() {
+    let telefone = this.alunoAtual.telefone || '';
+    telefone = telefone.replace(/\D/g, '');
+
+    if (telefone.length <= 10) {
+      telefone = telefone.replace(/^(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+    } else {
+      telefone = telefone.replace(/^(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+    }
+
+    this.alunoAtual.telefone = telefone.trim().replace(/[-\s)]$/, '');
+  }
+
+  permitirSomenteNumeros(event: KeyboardEvent) {
+    const teclasPermitidas = [
+      'Backspace',
+      'ArrowLeft',
+      'ArrowRight',
+      'Tab',
+      'Delete',
+      'Home',
+      'End'
+    ];
+  
+    if (teclasPermitidas.includes(event.key)) {
+      return;
+    }
+  
+    const ehNumero = /^[0-9]$/.test(event.key);
+    if (!ehNumero) {
+      event.preventDefault();
+    }
+  }   
 }
