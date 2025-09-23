@@ -1,8 +1,7 @@
 import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
-import { LucideAngularModule, Home, Package, ShoppingBag, Store, PlusCircle, FilePenLine, Trash2 } from 'lucide-angular';
+import { LucideAngularModule, Home, User, FilePenLine, Trash2, Pencil, Users, PlusCircle } from 'lucide-angular';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
@@ -11,6 +10,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(),
-    importProvidersFrom(LucideAngularModule.pick({ Home, Package, ShoppingBag, Store, PlusCircle, FilePenLine, Trash2 }))
+    importProvidersFrom(LucideAngularModule.pick({ Home, User, FilePenLine, Trash2, Pencil, Users, PlusCircle }))
   ]
 };

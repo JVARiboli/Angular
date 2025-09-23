@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="h3 mb-0">Cadastro de Alunos</h2>
+    <button class="btn btn-primary d-flex align-items-center" (click)="abrirModal()">
+      <lucide-icon name="plus-circle" [size]="18" class="me-2"></lucide-icon>
+      Adicionar Aluno
+    </button>
+  </div>
+  
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead class="table-light">
+            <tr>
+              <th scope="col">Nome</th>
+              <th scope="col">Curso</th>
+              <th scope="col">Telefone</th>
+              <th scope="col" class="text-end">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let aluno of alunos">
+              <td>{{ aluno.nome }}</td>
+              <td>{{ aluno.curso }}</td>
+              <td>{{ aluno.telefone }}</td>
+              <td class="text-end">
+                <button class="btn btn-sm btn-outline-secondary me-2" (click)="abrirModal(aluno)" title="Editar">
+                  <lucide-icon name="pencil" [size]="16"></lucide-icon>
+                </button>
+                <button class="btn btn-sm btn-outline-danger" (click)="apagar(aluno.id || '')" title="Apagar">
+                    <lucide-icon name="trash-2" size="20"></lucide-icon>
+                  </button>                  
+              </td>
+            </tr>
+            <tr *ngIf="alunos.length === 0">
+              <td colspan="4" class="text-center text-muted py-4">Nenhum aluno cadastrado.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" #alunoModal tabindex="-1" aria-labelledby="alunoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="alunoModalLabel">
+            {{ modoEdicao ? 'Editar Aluno' : 'Adicionar Novo Aluno' }}
+          </h5>
+          <button type="button" class="btn-close" (click)="fecharModal()" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form #alunoForm="ngForm" (ngSubmit)="salvar()">
+            <div class="mb-3">
+              <label for="nome" class="form-label">Nome</label>
+              <input type="text" class="form-control" id="nome" name="nome" [(ngModel)]="alunoAtual.nome" required />
+            </div>
+            <div class="mb-3">
+              <label for="curso" class="form-label">Curso</label>
+              <input type="text" class="form-control" id="curso" name="curso" [(ngModel)]="alunoAtual.curso" required />
+            </div>
+            <div class="mb-3">
+              <label for="telefone" class="form-label">Telefone</label>
+              <input type="text" class="form-control" id="telefone" name="telefone" [(ngModel)]="alunoAtual.telefone" required />
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="fecharModal()">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="salvar()" [disabled]="!alunoForm.valid">
+            Salvar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

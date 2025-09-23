@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
   <div class="container-fluid">
-    <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" routerLink="/home">
-      <lucide-icon name="package" class="me-2"></lucide-icon>
-      Minha Loja
+    <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" routerLink="/">
+      <lucide-icon name="users" class="me-2" [size]="20"></lucide-icon>
+      Meus Alunos
     </a>
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -13,22 +13,15 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto align-items-center">
         <li class="nav-item">
-          <a class="nav-link px-3" routerLink="/home" routerLinkActive="active" 
-             [routerLinkActiveOptions]="{exact: true}">
+          <a class="nav-link px-3" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
             <lucide-icon name="home" [size]="16" class="me-1"></lucide-icon>
             Home
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link px-3" routerLink="/produtos" routerLinkActive="active">
-            <lucide-icon name="shopping-bag" [size]="16" class="me-1"></lucide-icon>
-            Produtos
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link px-3" routerLink="/lojas" routerLinkActive="active">
-            <lucide-icon name="store" [size]="16" class="me-1"></lucide-icon>
-            Lojas
+          <a class="nav-link px-3" routerLink="/alunos" routerLinkActive="active">
+            <lucide-icon name="user" [size]="16" class="me-1"></lucide-icon>
+            Alunos
           </a>
         </li>
       </ul>
@@ -42,6 +35,6 @@
 
 <footer class="footer mt-auto py-3 bg-light border-top">
   <div class="container text-center">
-    <span class="text-muted">Minha Loja &copy; 2025 - Todos os direitos reservados.</span>
+    <span class="text-muted">Meus Alunos &copy; 2025 - Todos os direitos reservados.</span>
   </div>
 </footer>
